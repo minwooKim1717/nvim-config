@@ -70,4 +70,41 @@ return {
 	)
   ),
 
+  -- Sections ...
+  s({trig="sec", dscr="Section"},
+	fmta("\\section{<>}",
+	  { i(1) }
+	)
+  ),
+
+  s({trig="subsec", dscr="Sub-Section"},
+	fmta("\\subsection{<>}",
+	  { i(1) }
+	)
+  ),
+
+  s({trig="subbsec", dscr="Sub-sub-Section"},
+	fmta("\\subsubsection{<>}",
+	  { i(1) }
+	)
+  ),
+
+  -- Citations ...
+  s({trig="cite", dscr="Sub-sub-Section"},
+	fmta("\\cite{<>}",
+	  { i(1) }
+	)
+  ),
+
+  s({trig="citep", dscr="Sub-sub-Section"},
+	fmta("\\citep{<>}",
+	  { i(1) }
+	)
+  ),
+
+  s({trig="citeauth", dscr="Sub-sub-Section"},
+	fmta("\\citeauthor{<>}",
+	  { i(1) }
+	)
+  ),
 }
