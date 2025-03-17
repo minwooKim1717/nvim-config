@@ -11,6 +11,8 @@ Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
+Plug 'R-nvim/R.nvim'
+Plug 'R-nvim/cmp-r'
 
 Plug 'preservim/nerdtree'
 Plug 'lervag/vimtex'
@@ -20,6 +22,8 @@ Plug 'lervag/vimtex'
 " Plug 'arcticicestudio/nord-vim'
 " Plug 'folke/tokyonight.nvim'
 Plug 'EdenEast/nightfox.nvim'
+Plug 'w0ng/vim-hybrid'
+Plug 'junegunn/seoul256.vim'
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -28,10 +32,10 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'L3MON4D3/LuaSnip', {'tag': 'v2.*', 'do': 'make install_jsregexp'} " Replace <CurrentMajor> by the latest released major (first number of latest release)
 Plug 'saadparwaiz1/cmp_luasnip'
 
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " OLD STUFFS ... -------------------------------------------------
 " Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'npm ci'}
-" Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " Plug 'nvim-lualine/lualine.nvim'
 " If you want to have icons in your statusline choose one of these
@@ -52,16 +56,27 @@ lua require('init')
 " colorscheme tokyonight-storm
 " colorscheme tokyonight-day
 " colorscheme tokyonight-moon
-colorscheme nordfox
-let g:airline_theme='base16'  " alduin, 
+" colorscheme nordfox
+set background=dark
+" colorscheme hybrid
+"
+" seoul256 (dark):
+"   Range:   233 (darkest) ~ 239 (lightest)
+"   Default: 237
+let g:seoul256_background = 233
+colorscheme seoul256
+
+" Airline
+" let g:airline_theme='base16'  " alduin, 
 " turn on the list of buffers
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '|'
-let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+" let g:airline#extensions#tabline#enabled = 1
+" let g:airline#extensions#tabline#left_sep = ' '
+" let g:airline#extensions#tabline#left_alt_sep = '|'
+" let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 "
 " lua require('lualine').setup({ ... })
 
+lua require('cmp_r').setup({})
 
 " vim config ---
 set cursorline
@@ -82,8 +97,8 @@ set termguicolors
 " set colorcolumn=100
 set wrap
 set linebreak
-set updatetime=300  " coc.nvim
-set signcolumn=yes  " coc.nvim
+" set updatetime=300  " coc.nvim
+" set signcolumn=yes  " coc.nvim
 set clipboard=unnamedplus   " using system clipboard
 set cursorline              " highlight current cursorline
 set hidden
