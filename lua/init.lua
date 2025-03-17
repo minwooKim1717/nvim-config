@@ -56,7 +56,8 @@ cmp.setup({
     { name = 'luasnip' }, -- For luasnip users.
     -- { name = 'ultisnips' }, -- For ultisnips users.
     -- { name = 'snippy' }, -- For snippy users.
-	{name = 'path'},  -- for file paths
+	{ name = 'path' },  -- for file paths
+    { name = 'cmp_r' },
   })
 --  }, {
 --    { name = 'buffer' },
@@ -95,6 +96,8 @@ require("cmp_git").setup() ]]--
 
 -- Set up lspconfig.
 -- you need to install language servers before do some setting
+--
+
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
 require('lspconfig')['texlab'].setup {
@@ -103,7 +106,6 @@ require('lspconfig')['texlab'].setup {
 require('lspconfig')['luau_lsp'].setup {
    capabilities = capabilities
 }
-
 -- For many servers ...
 -- local lsp_servers = { 'texlab', 'luau_lsp' }
 -- for _, server in pairs(lsp_servers)
@@ -112,3 +114,11 @@ require('lspconfig')['luau_lsp'].setup {
 --     capabilities = capabilities
 --   }
 -- end
+--
+
+vim.diagnostic.config({
+    virtual_text = true, -- 버퍼 상에서 warning/error 감추기
+    signs = false,        -- 왼쪽 gutter (라인 번호 옆 기호) 숨기기
+    underline = false,    -- 오류 발생한 부분 밑줄 없애기
+    update_in_insert = true, -- insert 모드에서 diagnostic 업데이트 비활성화
+})
